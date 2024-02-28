@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add New Book</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+    input[type="text"], input[type="submit"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .links a {
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Add New Book</h1>
+    <form action="AddBookServlet" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author">
+        
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn">
+        
+        <input type="submit" value="Add Book">
+    </form>
+    <div class="links">
+        <a href="ViewAllBooksServlet">View the complete list of Books</a>
+        <a href="ViewAllCheckoutsServlet">View all Checkouts</a>
+        <a href="AddItemsForCheckoutServlet">Create a new Checkout</a>
+    </div>
+</div>
+</body>
+</html>

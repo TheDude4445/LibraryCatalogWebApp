@@ -16,7 +16,7 @@ import model.Checkout;
  * The Helper class for Object Checkout
  */
 public class CheckoutHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalog");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalogWebApp");
 	
 	public void insertNewCheckout(Checkout co) {
 		EntityManager em = emfactory.createEntityManager(); 

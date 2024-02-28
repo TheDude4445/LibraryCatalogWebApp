@@ -17,7 +17,7 @@ import model.Person;
  * The Helper class for People
  */
 public class PersonHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalog");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalogWebApp");
 	
 	public void insertPerson(Person p) {
 		EntityManager em = emfactory.createEntityManager();

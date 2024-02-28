@@ -16,7 +16,7 @@ import model.Book;
  * The Helper class for Object Book
  */
 public class BookHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalog");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("LibraryCatalogWebApp");
 	
 	public void insertBook(Book bo) {
 		EntityManager em = emfactory.createEntityManager();
@@ -31,6 +31,14 @@ public class BookHelper {
 		List<Book> allBooks = em.createQuery("SELECT i FROM Book i").getResultList();
 		return allBooks;
 	}
+	
+	public List<Book> getAllBooks() {
+        EntityManager entityManager = emfactory.createEntityManager();
+        TypedQuery<Book> query = entityManager.createQuery("SELECT b FROM Book b", Book.class);
+        List<Book> bookList = query.getResultList();
+        entityManager.close();
+        return bookList;
+    }
 	
 	public void deleteBook(Book toDelete) {
 		EntityManager em = emfactory.createEntityManager();

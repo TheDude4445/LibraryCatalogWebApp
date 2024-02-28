@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class Checkout {
 	@GeneratedValue
 	private int id; 
 	private String checkoutName; 
+	private LocalDate checkoutDate;
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Person person; 
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
@@ -58,6 +60,13 @@ public class Checkout {
 		this.person = person;
 		this.listOfBook = listOfBook;
 	}
+	public Checkout(String checkoutName, LocalDate checkoutDate, Person person) {
+        this.checkoutName = checkoutName;
+        this.checkoutDate = checkoutDate;
+        this.person = person;
+        // Assuming listOfItems is initialized as an empty list
+        this.listOfBook = List.of(); // Available in Java 9 and later, or use new ArrayList<>() for earlier versions
+    }
 	
 	//Getters and Setters
 	/**
@@ -107,6 +116,13 @@ public class Checkout {
 	 */
 	public void setListOfBook(List<Book> listOfBook) {
 		this.listOfBook = listOfBook;
+	}
+	
+	public LocalDate getCheckoutDate() {
+		return checkoutDate;
+	}
+	public void setCheckoutDate(LocalDate checkoutDate) {
+		this.checkoutDate = checkoutDate;
 	}
 	
 	//Helper Methods
