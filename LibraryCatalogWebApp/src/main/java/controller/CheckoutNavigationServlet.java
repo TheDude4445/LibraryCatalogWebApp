@@ -55,8 +55,10 @@ public class CheckoutNavigationServlet extends HttpServlet {
 				} else if (act.equals("edit")) {
 					try {
 						Integer tempId = Integer.parseInt(request.getParameter("id"));
+						System.out.println("Current ID Nav: " + request.getParameter("id"));
 						Checkout checkoutToUpdate = dao.searchForCheckoutById(tempId);
 						request.setAttribute("CheckoutToUpdate", checkoutToUpdate);
+						request.setAttribute("id", checkoutToUpdate.getId());
 						request.setAttribute("checkoutName", checkoutToUpdate.getCheckoutName());
 						request.setAttribute("personName", checkoutToUpdate.getPerson().getPersonName());
 						request.setAttribute("month", checkoutToUpdate.getCheckoutDate().getMonthValue());

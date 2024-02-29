@@ -62,7 +62,7 @@
 <div class="container">
     <h1>Edit An Existing Checkout</h1>
     <form action="EditCheckoutDetailsServlet" method="post">
-        <input type="hidden" name="id" value="${checkoutToUpdate.id}">
+        <input type="hidden" name="id" value="${id}">
         
         <label for="checkoutName">Checkout Name:</label>
         <input type="text" name="checkoutName" value="${checkoutName}">
